@@ -1627,6 +1627,268 @@
     .credit-handle:hover { color: var(--gold); }
 
     /* ══════════════════════════════════════════════════════
+       ROSE WATERMARKS — ornamentación sutil de rosas en fondo
+    ══════════════════════════════════════════════════════ */
+    .rose-watermark {
+      position: absolute;
+      pointer-events: none;
+      color: var(--accent);
+      opacity: .08;
+      z-index: 0;
+      will-change: transform;
+    }
+    .rose-watermark svg { width: 100%; height: 100%; display: block; }
+
+    /* Variantes de tamaño */
+    .rose-watermark.xs { width: 48px; height: 48px; opacity: .10; }
+    .rose-watermark.sm { width: 72px; height: 72px; opacity: .08; }
+    .rose-watermark.md { width: 110px; height: 110px; opacity: .07; }
+    .rose-watermark.lg { width: 160px; height: 160px; opacity: .055; }
+
+    /* Rosas blancas/claras sobre fondos oscuros */
+    .rose-watermark.on-dark { color: var(--gold-light); opacity: .08; }
+
+    /* Asegura que el contenido de sección quede encima */
+    section > *:not(.rose-watermark):not(.corner-decor):not(.petals-layer):not(.wheel-photo) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       RSVP V2 — título RSVP + botón estético
+    ══════════════════════════════════════════════════════ */
+    .rsvp-title {
+      font-family: var(--display);
+      font-weight: 400;
+      letter-spacing: 12px;
+      font-size: clamp(42px, 12vw, 56px);
+      color: var(--text);
+      background: linear-gradient(180deg, var(--accent) 0%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-left: 12px;
+    }
+    .rsvp-title-script {
+      font-family: var(--script);
+      font-size: .7em;
+      color: var(--gold);
+      -webkit-text-fill-color: var(--gold);
+      background: none;
+      padding: 0 2px;
+      vertical-align: 6px;
+      letter-spacing: 0;
+    }
+
+    .btn-rsvp {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      margin: 12px auto 0;
+      position: relative;
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--accent) 50%, var(--terracota) 100%);
+      color: #FFF8F8;
+      border: none;
+      border-radius: 100px;
+      padding: 2px;
+      cursor: pointer;
+      box-shadow:
+        0 1px 2px rgba(46,26,29,.1),
+        0 12px 32px -10px rgba(139,58,74,.45),
+        0 30px 60px -30px rgba(92,30,40,.5);
+      transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
+      overflow: hidden;
+    }
+    .btn-rsvp::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,248,248,.25) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform .9s ease;
+      pointer-events: none;
+    }
+    .btn-rsvp:hover::before { transform: translateX(100%); }
+    .btn-rsvp:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 2px 4px rgba(46,26,29,.12),
+        0 18px 40px -10px rgba(139,58,74,.55),
+        0 40px 72px -30px rgba(92,30,40,.6);
+    }
+    .btn-rsvp:active { transform: scale(.98); }
+
+    .btn-rsvp-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 28px;
+      border-radius: 100px;
+      background: linear-gradient(135deg,
+        rgba(92,30,40,.9) 0%,
+        rgba(139,58,74,.92) 50%,
+        rgba(166,66,76,.9) 100%);
+      min-height: 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-rsvp-heart {
+      width: 18px; height: 18px;
+      color: var(--gold-light);
+      flex-shrink: 0;
+      animation: heart-breathe-small 2.4s ease-in-out infinite;
+      transform-origin: center;
+      filter: drop-shadow(0 0 6px rgba(232,184,189,.6));
+    }
+    @keyframes heart-breathe-small {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.18); }
+    }
+
+    .btn-rsvp-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FFF8F8;
+    }
+
+    .btn-rsvp-arrow {
+      width: 18px; height: 18px;
+      color: var(--gold-light);
+      flex-shrink: 0;
+      transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    }
+    .btn-rsvp:hover .btn-rsvp-arrow { transform: translateX(4px); }
+
+    /* ══════════════════════════════════════════════════════
+       RSVP FORM — stepper + campos dinámicos
+    ══════════════════════════════════════════════════════ */
+    .rsvp-form {
+      max-width: 360px;
+      margin: 36px auto 0;
+      text-align: left;
+    }
+
+    .rsvp-stepper-wrap {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .rsvp-stepper-label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(46,26,29,.55);
+      margin-bottom: 14px;
+      padding-left: 3px;
+    }
+    .rsvp-stepper {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      padding: 10px 14px;
+      background: linear-gradient(145deg, rgba(255,248,248,.95), rgba(245,228,224,.9));
+      border: 1px solid rgba(199,122,130,.3);
+      border-radius: 100px;
+      box-shadow:
+        0 2px 6px rgba(46,26,29,.06),
+        0 12px 32px -12px rgba(139,58,74,.2);
+    }
+    .rsvp-step-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFF8F8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 12px rgba(92,30,40,.25);
+      transition: background .2s ease, transform .15s ease, opacity .2s ease;
+      flex-shrink: 0;
+    }
+    .rsvp-step-btn:hover { background: var(--gold-dark); }
+    .rsvp-step-btn:active { transform: scale(.92); }
+    .rsvp-step-btn[disabled] {
+      opacity: .4;
+      cursor: not-allowed;
+      background: rgba(139,58,74,.35);
+    }
+    .rsvp-step-btn svg { width: 20px; height: 20px; }
+
+    .rsvp-step-count {
+      font-family: var(--display);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--accent);
+      min-width: 40px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .rsvp-names {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .rsvp-guest-field {
+      position: relative;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .rsvp-guest-field.in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .4s ease, transform .4s cubic-bezier(.2,.7,.2,1);
+    }
+    .rsvp-guest-field label {
+      position: absolute;
+      top: -9px;
+      left: 16px;
+      padding: 0 8px;
+      background: var(--bg);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      z-index: 1;
+    }
+    .rsvp-guest-input {
+      width: 100%;
+      background: rgba(255,248,248,.9);
+      border: 1.5px solid rgba(199,122,130,.3);
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--text);
+      outline: none;
+      transition: border-color .22s ease, box-shadow .22s ease;
+      min-height: 52px;
+    }
+    .rsvp-guest-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(199,122,130,0.18);
+    }
+    .rsvp-guest-input::placeholder {
+      color: rgba(46,26,29,.32);
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════════════════════
        LOCATION REDESIGN V2 — timeline con rosas
     ══════════════════════════════════════════════════════ */
     .loc-stack {
@@ -1977,12 +2239,27 @@
 
     .gift-heart {
       position: relative;
-      width: 280px;
-      height: 260px;
+      width: 320px;
+      height: 300px;
       filter:
         drop-shadow(0 4px 10px rgba(92,30,40,.12))
-        drop-shadow(0 18px 36px rgba(139,58,74,.22));
+        drop-shadow(0 18px 40px rgba(139,58,74,.22));
+      animation: heart-breathe 3.8s ease-in-out infinite;
+      transform-origin: center 55%;
+      will-change: transform;
     }
+    .gift-heart-wrapper:nth-child(2) .gift-heart { animation-delay: -1.2s; }
+    .gift-heart-wrapper:nth-child(3) .gift-heart { animation-delay: -2.4s; }
+
+    @keyframes heart-breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.045); }
+    }
+
+    @media (max-width: 340px) {
+      .gift-heart { width: 280px; height: 268px; }
+    }
+
     .heart-shape {
       position: absolute;
       inset: 0;
@@ -1997,30 +2274,31 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 48px 42px 70px;
+      padding: 56px 46px 78px;
       text-align: center;
-      gap: 6px;
+      gap: 8px;
     }
     .gift-icon-sm {
-      width: 38px; height: 38px;
+      width: 42px;
+      height: 42px;
       color: var(--accent);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .gift-icon-sm svg { width: 100%; height: 100%; }
     .gift-name-sm {
       font-family: var(--serif);
-      font-size: 20px;
+      font-size: 22px;
       color: var(--text);
       line-height: 1.15;
       letter-spacing: -.005em;
     }
     .gift-desc-sm {
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: .6px;
-      color: rgba(46,26,29,.6);
+      color: rgba(46,26,29,.62);
       line-height: 1.55;
-      max-width: 160px;
+      max-width: 190px;
     }
     .gift-desc-sm b {
       display: block;
@@ -2075,6 +2353,7 @@
         animation-iteration-count: 1 !important;
       }
       .fu { opacity: 1 !important; transform: none !important; }
+      .gift-heart { animation: none !important; }
       .hero-letter { opacity: 1 !important; transform: none !important; filter: none !important; }
       .hero-heart { opacity: 1 !important; transform: scale(1) !important; }
       .hero-amp, .hero-date, .hero-city, .hero-scroll { opacity: 1 !important; transform: none !important; }
@@ -2180,6 +2459,22 @@
 
     <!-- ── 2. COUNTDOWN ────────────────────────────── -->
     <section id="cuenta" aria-label="Cuenta regresiva">
+      <svg class="rose-watermark md" style="top:6%;left:-30px;transform:rotate(-22deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <circle cx="50" cy="50" r="8"/>
+        <circle cx="50" cy="50" r="15" opacity=".7"/>
+        <circle cx="50" cy="50" r="22" opacity=".5"/>
+        <path d="M20 50 Q30 25 50 32" stroke-linecap="round"/>
+        <path d="M80 50 Q70 25 50 32" stroke-linecap="round"/>
+        <path d="M20 50 Q30 75 50 68" stroke-linecap="round"/>
+        <path d="M80 50 Q70 75 50 68" stroke-linecap="round"/>
+        <path d="M50 72 L50 95" stroke-linecap="round"/>
+      </svg>
+      <svg class="rose-watermark sm" style="bottom:10%;right:-18px;transform:rotate(28deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <circle cx="50" cy="50" r="10"/>
+        <circle cx="50" cy="50" r="18" opacity=".55"/>
+        <path d="M25 50 Q35 28 50 35" stroke-linecap="round"/>
+        <path d="M75 50 Q65 28 50 35" stroke-linecap="round"/>
+      </svg>
       <p class="label fu">Faltan</p>
       <h2 class="title fu">Nuestro gran día</h2>
       <p class="subtitle fu">El tiempo vuela cuando esperas algo hermoso</p>
@@ -2262,6 +2557,25 @@
 
     <!-- ── 3. UBICACIÓN ────────────────────────────── -->
     <section id="ubicacion" aria-label="Lugares del evento">
+      <svg class="rose-watermark lg" style="top:-20px;right:-50px;transform:rotate(18deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+        <circle cx="50" cy="50" r="6"/>
+        <circle cx="50" cy="50" r="12" opacity=".7"/>
+        <circle cx="50" cy="50" r="19" opacity=".5"/>
+        <circle cx="50" cy="50" r="26" opacity=".3"/>
+        <path d="M20 50 Q32 26 50 34" stroke-linecap="round"/>
+        <path d="M80 50 Q68 26 50 34" stroke-linecap="round"/>
+        <path d="M20 50 Q32 74 50 66" stroke-linecap="round"/>
+        <path d="M80 50 Q68 74 50 66" stroke-linecap="round"/>
+        <path d="M50 72 L50 95" stroke-linecap="round"/>
+        <path d="M45 85 Q40 80 38 83" stroke-linecap="round"/>
+        <path d="M55 88 Q60 83 62 86" stroke-linecap="round"/>
+      </svg>
+      <svg class="rose-watermark md" style="bottom:8%;left:-40px;transform:rotate(-14deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <circle cx="50" cy="50" r="8"/>
+        <circle cx="50" cy="50" r="16" opacity=".6"/>
+        <path d="M22 50 Q34 28 50 34" stroke-linecap="round"/>
+        <path d="M78 50 Q66 28 50 34" stroke-linecap="round"/>
+      </svg>
       <p class="label fu">Nos encontramos aquí</p>
       <h2 class="title fu">Dónde celebraremos</h2>
       <div class="rose-divider fu">
@@ -2379,6 +2693,21 @@
       <div class="corner-decor bl" style="border-color: rgba(199,122,130,0.2)"></div>
       <div class="corner-decor br" style="border-color: rgba(199,122,130,0.2)"></div>
 
+      <svg class="rose-watermark on-dark md" style="top:12%;left:-30px;transform:rotate(-18deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+        <circle cx="50" cy="50" r="7"/>
+        <circle cx="50" cy="50" r="14" opacity=".6"/>
+        <circle cx="50" cy="50" r="22" opacity=".4"/>
+        <path d="M22 50 Q34 26 50 34" stroke-linecap="round"/>
+        <path d="M78 50 Q66 26 50 34" stroke-linecap="round"/>
+        <path d="M22 50 Q34 74 50 66" stroke-linecap="round"/>
+        <path d="M78 50 Q66 74 50 66" stroke-linecap="round"/>
+      </svg>
+      <svg class="rose-watermark on-dark sm" style="bottom:14%;right:-20px;transform:rotate(22deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <circle cx="50" cy="50" r="10"/>
+        <circle cx="50" cy="50" r="18" opacity=".55"/>
+        <path d="M25 50 Q35 28 50 35" stroke-linecap="round"/>
+        <path d="M75 50 Q65 28 50 35" stroke-linecap="round"/>
+      </svg>
       <p class="label fu" style="text-align:center;">El programa</p>
       <h2 class="title fu" style="text-align:center;">Itinerario</h2>
       <div class="ornament-divider fu">
@@ -2748,37 +3077,49 @@
     </section>
 
     <!-- ── 9. COMPARTIR INVITACIÓN ───────────────── -->
-    <section id="rsvp" aria-label="Compartir invitación">
-      <p class="label fu">Comparte la invitación</p>
-      <h2 class="title fu">Envíala por WhatsApp</h2>
-      <p class="subtitle fu">Escribe el nombre de tu invitado y envía con un toque</p>
+    <section id="rsvp" aria-label="Confirmación de asistencia">
+      <p class="label fu">Confírmanos tu asistencia</p>
+      <h2 class="title rsvp-title fu">R<span class="rsvp-title-script">·</span>S<span class="rsvp-title-script">·</span>V<span class="rsvp-title-script">·</span>P</h2>
+      <p class="subtitle fu">Cuéntanos cuántos son y sus nombres</p>
 
-      <div>
-        <div class="rsvp-field fu">
-          <label for="rsvp-name">Nombre del invitado</label>
-          <input
-            type="text"
-            id="rsvp-name"
-            class="rsvp-input"
-            placeholder="Ej. Sofía, Tío Roberto, familia García…"
-            autocomplete="off"
-          />
+      <form class="rsvp-form" id="rsvp-form" onsubmit="return false;">
+        <div class="rsvp-stepper-wrap fu">
+          <span class="rsvp-stepper-label">Número de invitados</span>
+          <div class="rsvp-stepper" role="group" aria-label="Contador de invitados">
+            <button type="button" class="rsvp-step-btn" id="rsvp-dec" aria-label="Disminuir invitados">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="6" y1="12" x2="18" y2="12" stroke-linecap="round"/></svg>
+            </button>
+            <div class="rsvp-step-count" id="rsvp-count" aria-live="polite">1</div>
+            <button type="button" class="rsvp-step-btn" id="rsvp-inc" aria-label="Aumentar invitados">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="6" y1="12" x2="18" y2="12" stroke-linecap="round"/>
+                <line x1="12" y1="6" x2="12" y2="18" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <a
+        <div class="rsvp-names fu" id="rsvp-names" role="group" aria-label="Nombres de invitados">
+          <!-- Inputs dinámicos generados por JS -->
+        </div>
+
+        <button
+          type="button"
           id="btn-wa"
-          href="#"
-          target="_blank" rel="noopener noreferrer"
-          class="btn-wa fu"
-          aria-label="Enviar invitación por WhatsApp"
+          class="btn-rsvp fu"
+          aria-label="Confirmar asistencia por WhatsApp"
         >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.49 3.59 1.34 5.09L2 22l5.07-1.32A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.15a8.12 8.12 0 01-4.14-1.13l-.3-.18-3.08.81.82-3-.19-.31A8.15 8.15 0 013.85 12 8.15 8.15 0 0112 3.85 8.15 8.15 0 0120.15 12 8.15 8.15 0 0112 20.15z"/>
-          </svg>
-          Enviar invitación por WhatsApp
-        </a>
-      </div>
+          <span class="btn-rsvp-inner">
+            <svg class="btn-rsvp-heart" viewBox="0 0 24 22" fill="currentColor" aria-hidden="true">
+              <path d="M12 6.5 C14.2 1.5 22 1.5 22 9 C22 16.5 12 22 12 22 C12 22 2 16.5 2 9 C2 1.5 9.8 1.5 12 6.5 Z"/>
+            </svg>
+            <span class="btn-rsvp-label">Confirmar asistencia</span>
+            <svg class="btn-rsvp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </form>
     </section>
 
   </main>
@@ -3437,19 +3778,108 @@
   }
 
   /* ── RSVP – WhatsApp link ──────────────────────── */
-  document.getElementById('btn-wa').addEventListener('click', function () {
-    var name    = (document.getElementById('rsvp-name').value.trim()) || 'amigo/a';
-    var siteUrl = window.location.origin + window.location.pathname.replace(/\/$/, '');
-    var msg =
-      'Hola ' + name + ' 🌸\n\n' +
-      'Con todo nuestro amor, *Santiago & Valentina* te invitan a ser parte del día más especial de nuestras vidas. 💍\n\n' +
-      '📅 *20 de Septiembre de 2027*\n' +
-      '⛪ Ceremonia · Parroquia de Santa Catarina · Coyoacán · 16:00 hrs\n' +
-      '🥂 Recepción · Hacienda de los Morales · Polanco · 18:30 hrs\n\n' +
-      '✨ Abre tu invitación aquí:\n' + siteUrl + '\n\n' +
-      'Con todo nuestro cariño,\n*Santiago & Valentina* 💕';
-    this.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
-  });
+  /* ── RSVP — stepper + campos dinámicos + WhatsApp ── */
+  (function () {
+    var MIN = 1, MAX = 12;
+    var count = 1;
+
+    var countEl  = document.getElementById('rsvp-count');
+    var decBtn   = document.getElementById('rsvp-dec');
+    var incBtn   = document.getElementById('rsvp-inc');
+    var namesEl  = document.getElementById('rsvp-names');
+    var waBtn    = document.getElementById('btn-wa');
+
+    if (!countEl || !namesEl) return;
+
+    function updateDisabled() {
+      decBtn.toggleAttribute('disabled', count <= MIN);
+      incBtn.toggleAttribute('disabled', count >= MAX);
+    }
+
+    function renderFields() {
+      var existing = namesEl.querySelectorAll('.rsvp-guest-field');
+
+      // Añadir los que faltan
+      for (var i = existing.length; i < count; i++) {
+        var idx = i + 1;
+        var field = document.createElement('div');
+        field.className = 'rsvp-guest-field';
+        field.innerHTML =
+          '<label for="rsvp-guest-' + idx + '">Invitado ' + idx + '</label>' +
+          '<input type="text" id="rsvp-guest-' + idx + '" class="rsvp-guest-input" ' +
+          'placeholder="Ej. Sofía Hernández" autocomplete="off" />';
+        namesEl.appendChild(field);
+        requestAnimationFrame(function (el) {
+          return function () { el.classList.add('in'); };
+        }(field));
+      }
+
+      // Quitar los sobrantes con animación
+      existing = namesEl.querySelectorAll('.rsvp-guest-field');
+      for (var j = existing.length - 1; j >= count; j--) {
+        (function (el) {
+          el.style.transition = 'opacity .25s ease, transform .25s ease';
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(-8px)';
+          setTimeout(function () {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }, 250);
+        })(existing[j]);
+      }
+    }
+
+    function setCount(n) {
+      count = Math.max(MIN, Math.min(MAX, n));
+      countEl.textContent = count;
+      updateDisabled();
+      renderFields();
+    }
+
+    decBtn.addEventListener('click', function () { setCount(count - 1); });
+    incBtn.addEventListener('click', function () { setCount(count + 1); });
+
+    // Estado inicial
+    setCount(1);
+
+    // Envío por WhatsApp con todos los nombres
+    waBtn.addEventListener('click', function () {
+      var inputs = namesEl.querySelectorAll('.rsvp-guest-input');
+      var names  = [];
+      inputs.forEach(function (inp) {
+        var v = (inp.value || '').trim();
+        if (v) names.push(v);
+      });
+
+      var greeting;
+      if (names.length === 0) {
+        greeting = 'Hola 🌸';
+      } else if (names.length === 1) {
+        greeting = 'Hola ' + names[0] + ' 🌸';
+      } else if (names.length === 2) {
+        greeting = 'Hola ' + names[0] + ' y ' + names[1] + ' 🌸';
+      } else {
+        greeting = 'Hola ' + names.slice(0, -1).join(', ') + ' y ' + names[names.length - 1] + ' 🌸';
+      }
+
+      var guestLine = count === 1
+        ? 'Reservamos un lugar especial para ti.'
+        : 'Reservamos ' + count + ' lugares especiales para ustedes.';
+
+      var siteUrl = window.location.origin + window.location.pathname.replace(/\/$/, '');
+      var msg =
+        greeting + '\n\n' +
+        'Con todo nuestro amor, *Santiago & Valentina* les invitan a ser parte del día más especial de nuestras vidas. 💍\n\n' +
+        guestLine + '\n\n' +
+        '📅 *20 de Septiembre de 2027*\n' +
+        '⛪ Ceremonia · Parroquia de Santa Catarina · Coyoacán · 16:00 hrs\n' +
+        '🥂 Recepción · Hacienda de los Morales · Polanco · 18:30 hrs\n\n' +
+        '✨ Abre tu invitación aquí:\n' + siteUrl + '\n\n' +
+        'Con todo nuestro cariño,\n*Santiago & Valentina* 💕';
+
+      var url = 'https://wa.me/?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  })();
 
   /* ── Copiar CLABE ──────────────────────────────── */
   document.querySelectorAll('.copy-clabe').forEach(function (btn) {
