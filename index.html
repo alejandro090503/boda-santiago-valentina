@@ -2241,19 +2241,40 @@
       position: relative;
       width: 320px;
       height: 300px;
-      filter:
-        drop-shadow(0 4px 10px rgba(92,30,40,.12))
-        drop-shadow(0 18px 40px rgba(139,58,74,.22));
-      animation: heart-breathe 3.8s ease-in-out infinite;
+      animation: heart-breathe 3.6s ease-in-out infinite;
       transform-origin: center 55%;
-      will-change: transform;
+      will-change: transform, filter;
     }
     .gift-heart-wrapper:nth-child(2) .gift-heart { animation-delay: -1.2s; }
     .gift-heart-wrapper:nth-child(3) .gift-heart { animation-delay: -2.4s; }
 
     @keyframes heart-breathe {
-      0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.045); }
+      0%, 100% {
+        transform: scale(1);
+        filter:
+          drop-shadow(0 4px 10px rgba(92,30,40,.12))
+          drop-shadow(0 18px 40px rgba(139,58,74,.22));
+      }
+      50% {
+        transform: scale(1.05);
+        filter:
+          drop-shadow(0 6px 14px rgba(139,58,74,.32))
+          drop-shadow(0 22px 52px rgba(166,66,76,.45))
+          drop-shadow(0 0 22px rgba(199,122,130,.4));
+      }
+    }
+
+    /* Borde rojo pulsante sincronizado con la respiración */
+    .heart-shape path {
+      animation: heart-stroke 3.6s ease-in-out infinite;
+      will-change: stroke, stroke-width;
+    }
+    .gift-heart-wrapper:nth-child(2) .heart-shape path { animation-delay: -1.2s; }
+    .gift-heart-wrapper:nth-child(3) .heart-shape path { animation-delay: -2.4s; }
+
+    @keyframes heart-stroke {
+      0%, 100% { stroke: #C77A82; stroke-width: 1.6; }
+      50%      { stroke: #8B3A4A; stroke-width: 3; }
     }
 
     @media (max-width: 340px) {
@@ -2354,6 +2375,7 @@
       }
       .fu { opacity: 1 !important; transform: none !important; }
       .gift-heart { animation: none !important; }
+      .heart-shape path { animation: none !important; }
       .hero-letter { opacity: 1 !important; transform: none !important; filter: none !important; }
       .hero-heart { opacity: 1 !important; transform: scale(1) !important; }
       .hero-amp, .hero-date, .hero-city, .hero-scroll { opacity: 1 !important; transform: none !important; }
