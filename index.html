@@ -1161,6 +1161,35 @@
     }
 
     /* ══════════════════════════════════════════════════════
+       PETALS LAYER — pétalos cayendo en countdown
+    ══════════════════════════════════════════════════════ */
+    .petals-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    #cuenta > *:not(.petals-layer):not(.corner-decor) { position: relative; z-index: 2; }
+
+    .petal {
+      position: absolute;
+      top: -40px;
+      border-radius: 60% 40% 60% 40% / 70% 60% 40% 30%;
+      opacity: 0;
+      transform-origin: 50% 0%;
+      filter: drop-shadow(0 2px 4px rgba(139,58,74,.18));
+      will-change: transform, opacity;
+    }
+    .petal::before {
+      content: '';
+      position: absolute;
+      inset: 15% 45% 15% 45%;
+      background: rgba(92,30,40,.18);
+      border-radius: 50%;
+    }
+
+    /* ══════════════════════════════════════════════════════
        WHEEL PHOTOS — fotos laterales rotativas integradas
     ══════════════════════════════════════════════════════ */
     .wheel-photo {
@@ -1576,6 +1605,7 @@
     <section id="cuenta" aria-label="Cuenta regresiva">
       <div class="corner-decor tl"></div>
       <div class="corner-decor tr"></div>
+      <div class="petals-layer" id="petals-cuenta" aria-hidden="true"></div>
       <div class="wheel-photo left" style="top:30%" aria-hidden="true">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=85" alt="" loading="lazy" />
       </div>
@@ -2115,6 +2145,7 @@
       if (mainEl) mainEl.style.visibility = 'visible';
       heroAnim();
       spawnParticles();
+      spawnPetals();
       scrollAnims();
       wheelPhotosAnim();
       startCountdown();
@@ -2257,6 +2288,68 @@
         ease: 'power1.inOut',
         delay: Math.random() * 2
       });
+    }
+  }
+
+  /* ── spawnPetals — pétalos cayendo en countdown ── */
+  function spawnPetals() {
+    var wrap = document.getElementById('petals-cuenta');
+    if (!wrap) return;
+    var colors = ['#E8B8BD','#C77A82','#D8A8A8','#F0D4D4','#A6424C','#FFCDD2'];
+    var count  = 22;
+
+    function fall(p) {
+      var startXpct  = Math.random() * 100;
+      var drift      = (Math.random() - 0.5) * 120;
+      var duration   = 9 + Math.random() * 9;
+      var totalRot   = 240 + Math.random() * 720;
+      var swayAmp    = 30 + Math.random() * 40;
+      var delay      = Math.random() * 0.5;
+
+      gsap.set(p, { left: startXpct + '%', y: -40, x: 0, rotation: 0, opacity: 0 });
+
+      var tl = gsap.timeline({
+        delay: delay,
+        onComplete: function () { fall(p); }
+      });
+
+      tl.to(p, { opacity: 0.65 + Math.random() * 0.25, duration: 1.2, ease: 'power1.out' }, 0);
+
+      tl.to(p, {
+        y: '+=' + (window.innerHeight + 400),
+        x: drift,
+        rotation: totalRot,
+        duration: duration,
+        ease: 'none'
+      }, 0);
+
+      // Vaivén lateral ("sway")
+      tl.to(p, {
+        x: '+=' + swayAmp,
+        duration: duration / 4,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: 3
+      }, 0);
+
+      tl.to(p, { opacity: 0, duration: 1.8, ease: 'power1.in' }, duration - 1.8);
+    }
+
+    for (var i = 0; i < count; i++) {
+      var p  = document.createElement('div');
+      var sz = 9 + Math.random() * 11;
+      var col = colors[i % colors.length];
+      p.className = 'petal';
+      p.style.cssText =
+        'width:'  + sz.toFixed(1) + 'px;' +
+        'height:' + (sz * 1.25).toFixed(1) + 'px;' +
+        'background: linear-gradient(135deg, ' + col + ' 0%, ' + col + 'dd 50%, ' + col + '88 100%);';
+      wrap.appendChild(p);
+
+      // Escalonamos el inicio para que no caigan todos a la vez
+      (function(el, idx) {
+        gsap.delayedCall(idx * 0.55 + Math.random() * 0.8, function () { fall(el); });
+      })(p, i);
     }
   }
 
