@@ -331,16 +331,38 @@
 
     .hero-names {
       font-family: var(--script);
-      /* Dos líneas: "Santiago &" / "Valentina" — sin nowrap para que no desborde */
       font-size: clamp(52px, 16vw, 68px);
       line-height: 1.15;
       color: #FAF0EE;
-      clip-path: inset(0 100% 0 0);
-      will-change: clip-path;
       text-shadow: 0 2px 24px rgba(46,26,29,.3), 0 0 60px rgba(199,122,130,0.15);
       white-space: normal;
       text-align: center;
       padding: 0 16px;
+    }
+    .hero-line {
+      display: block;
+      white-space: nowrap;
+    }
+    .hero-letter {
+      display: inline-block;
+      opacity: 0;
+      will-change: transform, opacity, filter;
+      transform-origin: 50% 100%;
+    }
+    .hero-letter.is-space { width: .25em; }
+
+    /* Corazón pulsante que aparece entre los nombres */
+    .hero-heart {
+      display: inline-block;
+      width: clamp(28px, 8vw, 42px);
+      height: clamp(28px, 8vw, 42px);
+      margin: 0 .1em;
+      vertical-align: middle;
+      color: var(--gold-light);
+      opacity: 0;
+      transform: scale(.3);
+      will-change: transform, opacity;
+      filter: drop-shadow(0 0 12px rgba(232,184,189,.6));
     }
 
     .hero-amp {
@@ -1604,6 +1626,447 @@
     .credit-handle svg { flex-shrink: 0; }
     .credit-handle:hover { color: var(--gold); }
 
+    /* ══════════════════════════════════════════════════════
+       LOCATION REDESIGN V2 — timeline con rosas
+    ══════════════════════════════════════════════════════ */
+    .loc-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 54px;
+      margin-top: 52px;
+      position: relative;
+    }
+    .loc-stack::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 30px;
+      bottom: 30px;
+      width: 1px;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(199,122,130,.5) 12%,
+        rgba(199,122,130,.5) 88%,
+        transparent 100%);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .loc-card-v2 {
+      position: relative;
+      background: linear-gradient(155deg, rgba(255,248,248,.97) 0%, rgba(245,228,224,.93) 100%);
+      border: 1px solid rgba(199,122,130,.28);
+      border-radius: var(--r-lg);
+      padding: 48px 30px 34px;
+      text-align: center;
+      box-shadow:
+        0 1px 2px rgba(92,30,40,.05),
+        0 16px 44px -16px rgba(139,58,74,.22),
+        0 42px 90px -50px rgba(139,58,74,.3);
+    }
+
+    .loc-medal {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 52px;
+      background: var(--bg);
+      border: 1px solid rgba(199,122,130,.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      box-shadow:
+        0 4px 14px rgba(92,30,40,.14),
+        inset 0 0 0 4px rgba(232,184,189,.18);
+    }
+    .loc-medal svg { width: 26px; height: 26px; }
+
+    .loc-script {
+      font-family: var(--script);
+      font-size: 32px;
+      color: var(--accent);
+      line-height: 1;
+      margin-top: 2px;
+      margin-bottom: 0;
+    }
+
+    .loc-eyebrow-v2 {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(46,26,29,.42);
+      padding-left: 4px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .loc-name-v2 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.28;
+      letter-spacing: -.005em;
+      margin-bottom: 18px;
+    }
+
+    .loc-divider-v2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 18px;
+      max-width: 180px;
+    }
+    .loc-divider-v2 .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,122,130,.55), transparent);
+    }
+    .loc-divider-v2 svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      opacity: .7;
+      flex-shrink: 0;
+    }
+
+    .loc-addr-v2 {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: .8px;
+      color: rgba(46,26,29,.62);
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+
+    .loc-hour-big {
+      font-family: var(--display);
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -.01em;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 6px;
+    }
+    .loc-hour-lbl {
+      font-family: var(--serif);
+      font-size: 12px;
+      font-style: italic;
+      letter-spacing: 3px;
+      color: rgba(46,26,29,.5);
+      text-transform: lowercase;
+      margin-bottom: 26px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       ITINERARY V2 — cards elegantes manteniendo línea
+    ══════════════════════════════════════════════════════ */
+    .itin-card {
+      text-align: center;
+      padding: 34px 28px 30px;
+      background: linear-gradient(155deg, rgba(232,184,189,.08) 0%, rgba(139,58,74,.04) 100%);
+      border: 1px solid rgba(232,184,189,.16);
+      border-radius: 22px;
+    }
+    .itin-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 48%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    }
+    .itin-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      top: auto;
+      width: 35%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,122,130,.5), transparent);
+      pointer-events: none;
+    }
+
+    .itin-card .itin-icon {
+      margin: 0 auto 20px;
+      width: 54px; height: 54px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(232,184,189,.35) 0%, transparent 50%),
+        linear-gradient(135deg, var(--gold-dark) 0%, var(--accent) 60%, var(--terracota) 100%);
+      box-shadow:
+        0 6px 20px rgba(139,58,74,.4),
+        inset 0 0 0 1px rgba(232,184,189,.32);
+      position: relative;
+    }
+    .itin-card .itin-icon::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,184,189,.2);
+      pointer-events: none;
+    }
+
+    .itin-card .itin-time {
+      text-align: center;
+      font-size: 40px;
+      line-height: 1;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.01em;
+    }
+
+    .itin-card .itin-event {
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22px;
+      color: var(--crema);
+      letter-spacing: .2px;
+      margin-bottom: 10px;
+    }
+
+    .itin-card .itin-desc {
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.7;
+      color: rgba(232,184,189,.66);
+      letter-spacing: .4px;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* Rosa decorativa sutil en esquina de la card */
+    .itin-card .itin-corner-rose {
+      position: absolute;
+      top: 12px; right: 14px;
+      width: 22px; height: 22px;
+      color: var(--gold-light);
+      opacity: .35;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       FAMILIA V2 — grupos elegantes con scripts
+    ══════════════════════════════════════════════════════ */
+    .fam-group-v2 {
+      margin-bottom: 54px;
+      text-align: center;
+      position: relative;
+    }
+    .fam-group-v2:last-child { margin-bottom: 0; }
+
+    .fam-heading {
+      display: inline-block;
+      position: relative;
+      padding: 0 34px;
+      margin-bottom: 22px;
+    }
+    .fam-script {
+      font-family: var(--script);
+      font-size: 36px;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: .5px;
+    }
+    .fam-heading::before,
+    .fam-heading::after {
+      content: '';
+      position: absolute;
+      top: 58%;
+      width: 44px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,122,130,.55), transparent);
+    }
+    .fam-heading::before { right: 100%; }
+    .fam-heading::after  { left: 100%; }
+
+    .fam-eyebrow {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--terracota);
+      padding-left: 4px;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .fam-members-v2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 0 16px;
+    }
+
+    .fam-entry {
+      text-align: center;
+      position: relative;
+    }
+
+    .fam-role-v2 {
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      color: rgba(46,26,29,.48);
+      padding-left: 4.5px;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .fam-name-v2 {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: -.005em;
+    }
+
+    /* Separador con rosa entre grupos */
+    .fam-group-v2 + .fam-group-v2::before {
+      content: '';
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: .45;
+      box-shadow:
+        -14px 0 0 -2px var(--accent),
+         14px 0 0 -2px var(--accent);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       GIFT HEART — tarjetas de mesa de regalos en corazón
+    ══════════════════════════════════════════════════════ */
+    .gifts-hearts {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .gift-heart-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+    }
+
+    .gift-heart {
+      position: relative;
+      width: 280px;
+      height: 260px;
+      filter:
+        drop-shadow(0 4px 10px rgba(92,30,40,.12))
+        drop-shadow(0 18px 36px rgba(139,58,74,.22));
+    }
+    .heart-shape {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .heart-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 48px 42px 70px;
+      text-align: center;
+      gap: 6px;
+    }
+    .gift-icon-sm {
+      width: 38px; height: 38px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .gift-icon-sm svg { width: 100%; height: 100%; }
+    .gift-name-sm {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -.005em;
+    }
+    .gift-desc-sm {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .6px;
+      color: rgba(46,26,29,.6);
+      line-height: 1.55;
+      max-width: 160px;
+    }
+    .gift-desc-sm b {
+      display: block;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .gift-clabe-sm {
+      font-family: var(--sans);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 1.5px;
+      font-size: 11px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .gift-btn-heart {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      padding: 12px 26px;
+      border-radius: 100px;
+      border: 1px solid var(--accent);
+      min-height: 44px;
+      min-width: 160px;
+      cursor: pointer;
+      transition: background .3s ease, color .3s ease, transform .2s ease;
+    }
+    .gift-btn-heart:hover,
+    .gift-btn-heart:active {
+      background: var(--accent);
+      color: #FFF8F8;
+    }
+    .gift-btn-heart:active { transform: scale(.97); }
+
     /* ── REDUCED MOTION ──────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1612,7 +2075,8 @@
         animation-iteration-count: 1 !important;
       }
       .fu { opacity: 1 !important; transform: none !important; }
-      .hero-names { clip-path: none !important; }
+      .hero-letter { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .hero-heart { opacity: 1 !important; transform: scale(1) !important; }
       .hero-amp, .hero-date, .hero-city, .hero-scroll { opacity: 1 !important; transform: none !important; }
       .itin-card { opacity: 1 !important; transform: none !important; }
       #envelope-screen { display: none !important; }
@@ -1694,7 +2158,15 @@
 
       <div class="hero-content">
         <div class="hero-ornament-top" id="hero-orn-top" aria-hidden="true"></div>
-        <h1 class="hero-names" id="hero-names">Santiago &amp;<br>Valentina</h1>
+        <h1 class="hero-names" id="hero-names" aria-label="Santiago y Valentina">
+          <span class="hero-line" data-name="Santiago"></span>
+          <span class="hero-heart-wrap" aria-hidden="true">
+            <svg class="hero-heart" id="hero-heart" viewBox="0 0 32 30" fill="currentColor">
+              <path d="M16 8 C19 2 30 2 30 11 C30 20 16 28 16 28 C16 28 2 20 2 11 C2 2 13 2 16 8 Z"/>
+            </svg>
+          </span>
+          <span class="hero-line" data-name="Valentina"></span>
+        </h1>
         <div class="hero-ornament-bottom" id="hero-orn-bottom" aria-hidden="true"></div>
         <p class="hero-date"  id="hero-date">20 · Septiembre · MMXXVII</p>
         <p class="hero-city"  id="hero-city">Ciudad de México</p>
@@ -1807,36 +2279,71 @@
       </div>
       <p class="subtitle fu">Te esperamos con los brazos abiertos</p>
 
-      <div class="loc-cards">
-        <article class="loc-card fu">
-          <p class="loc-type">Ceremonia Civil</p>
-          <h3 class="loc-name">Parroquia de Santa Catarina</h3>
-          <p class="loc-addr">Jardín Centenario s/n<br>Col. Coyoacán, CDMX</p>
-          <p class="loc-hour">16:00 hrs</p>
+      <div class="loc-stack">
+        <article class="loc-card-v2 fu">
+          <div class="loc-medal" aria-hidden="true">
+            <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 10 Q11 7 13 9 Q15 7 18 10"/>
+              <circle cx="13" cy="13" r="3"/>
+              <circle cx="13" cy="13" r="1.3"/>
+              <path d="M13 16 L13 21"/>
+              <path d="M10 19 Q11 17 13 18"/>
+              <path d="M16 19 Q15 17 13 18"/>
+            </svg>
+          </div>
+          <p class="loc-script fu">Ceremonia</p>
+          <p class="loc-eyebrow-v2 fu">dónde nos unimos</p>
+          <h3 class="loc-name-v2 fu">Parroquia de Santa Catarina</h3>
+          <div class="loc-divider-v2 fu">
+            <div class="line"></div>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 2 C10.5 4 10.5 11 8 14 C5.5 11 5.5 4 8 2z" opacity=".85"/>
+            </svg>
+            <div class="line"></div>
+          </div>
+          <p class="loc-addr-v2 fu">Jardín Centenario s/n<br>Col. Coyoacán, CDMX</p>
+          <div class="loc-hour-big fu">16:00</div>
+          <p class="loc-hour-lbl fu">de la tarde</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+de+Santa+Catarina+Martir,+Jardin+Centenario,+Coyoacan,+Ciudad+de+Mexico"
              target="_blank" rel="noopener noreferrer"
-             class="btn-maps" aria-label="Ver Parroquia de Santa Catarina en Google Maps">
+             class="btn-maps fu" aria-label="Ver Parroquia de Santa Catarina en Google Maps">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
               <circle cx="12" cy="9" r="2.5"/>
             </svg>
-            Ver en Google Maps
+            Cómo llegar
           </a>
         </article>
 
-        <article class="loc-card fu">
-          <p class="loc-type">Recepción</p>
-          <h3 class="loc-name">Hacienda de los Morales</h3>
-          <p class="loc-addr">Vázquez de Mella 525<br>Col. Los Morales Polanco, CDMX</p>
-          <p class="loc-hour">18:30 hrs</p>
+        <article class="loc-card-v2 fu">
+          <div class="loc-medal" aria-hidden="true">
+            <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 10 L20 10 L19 20 L7 20 Z"/>
+              <path d="M10 10 Q10 6 13 6 Q16 6 16 10"/>
+              <circle cx="13" cy="14" r="1.5"/>
+            </svg>
+          </div>
+          <p class="loc-script fu">Recepción</p>
+          <p class="loc-eyebrow-v2 fu">dónde celebramos</p>
+          <h3 class="loc-name-v2 fu">Hacienda de los Morales</h3>
+          <div class="loc-divider-v2 fu">
+            <div class="line"></div>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 2 C10.5 4 10.5 11 8 14 C5.5 11 5.5 4 8 2z" opacity=".85"/>
+            </svg>
+            <div class="line"></div>
+          </div>
+          <p class="loc-addr-v2 fu">Vázquez de Mella 525<br>Col. Los Morales Polanco, CDMX</p>
+          <div class="loc-hour-big fu">18:30</div>
+          <p class="loc-hour-lbl fu">de la noche</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Hacienda+de+los+Morales,+Vazquez+de+Mella+525,+Polanco,+Ciudad+de+Mexico"
              target="_blank" rel="noopener noreferrer"
-             class="btn-maps" aria-label="Ver Hacienda de los Morales en Google Maps">
+             class="btn-maps fu" aria-label="Ver Hacienda de los Morales en Google Maps">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
               <circle cx="12" cy="9" r="2.5"/>
             </svg>
-            Ver en Google Maps
+            Cómo llegar
           </a>
         </article>
       </div>
@@ -1886,6 +2393,14 @@
 
         <div class="itin-card" role="listitem">
           <div class="itin-card-shine"></div>
+          <svg class="itin-corner-rose" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="11" cy="11" r="2.2"/>
+            <circle cx="11" cy="11" r="4.2" opacity=".7"/>
+            <path d="M4 11 Q6 5 11 7" stroke-linecap="round"/>
+            <path d="M18 11 Q16 5 11 7" stroke-linecap="round"/>
+            <path d="M4 11 Q6 17 11 15" stroke-linecap="round"/>
+            <path d="M18 11 Q16 17 11 15" stroke-linecap="round"/>
+          </svg>
           <div class="itin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
@@ -1898,6 +2413,14 @@
 
         <div class="itin-card" role="listitem">
           <div class="itin-card-shine"></div>
+          <svg class="itin-corner-rose" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="11" cy="11" r="2.2"/>
+            <circle cx="11" cy="11" r="4.2" opacity=".7"/>
+            <path d="M4 11 Q6 5 11 7" stroke-linecap="round"/>
+            <path d="M18 11 Q16 5 11 7" stroke-linecap="round"/>
+            <path d="M4 11 Q6 17 11 15" stroke-linecap="round"/>
+            <path d="M18 11 Q16 17 11 15" stroke-linecap="round"/>
+          </svg>
           <div class="itin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -1910,6 +2433,14 @@
 
         <div class="itin-card" role="listitem">
           <div class="itin-card-shine"></div>
+          <svg class="itin-corner-rose" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="11" cy="11" r="2.2"/>
+            <circle cx="11" cy="11" r="4.2" opacity=".7"/>
+            <path d="M4 11 Q6 5 11 7" stroke-linecap="round"/>
+            <path d="M18 11 Q16 5 11 7" stroke-linecap="round"/>
+            <path d="M4 11 Q6 17 11 15" stroke-linecap="round"/>
+            <path d="M18 11 Q16 17 11 15" stroke-linecap="round"/>
+          </svg>
           <div class="itin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M8 2v4M16 2v4M3.5 9.09h17M21 8v11a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3h12a3 3 0 013 3z"/>
@@ -1923,6 +2454,14 @@
 
         <div class="itin-card" role="listitem">
           <div class="itin-card-shine"></div>
+          <svg class="itin-corner-rose" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="11" cy="11" r="2.2"/>
+            <circle cx="11" cy="11" r="4.2" opacity=".7"/>
+            <path d="M4 11 Q6 5 11 7" stroke-linecap="round"/>
+            <path d="M18 11 Q16 5 11 7" stroke-linecap="round"/>
+            <path d="M4 11 Q6 17 11 15" stroke-linecap="round"/>
+            <path d="M18 11 Q16 17 11 15" stroke-linecap="round"/>
+          </svg>
           <div class="itin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
@@ -1938,6 +2477,14 @@
 
         <div class="itin-card" role="listitem">
           <div class="itin-card-shine"></div>
+          <svg class="itin-corner-rose" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="11" cy="11" r="2.2"/>
+            <circle cx="11" cy="11" r="4.2" opacity=".7"/>
+            <path d="M4 11 Q6 5 11 7" stroke-linecap="round"/>
+            <path d="M18 11 Q16 5 11 7" stroke-linecap="round"/>
+            <path d="M4 11 Q6 17 11 15" stroke-linecap="round"/>
+            <path d="M18 11 Q16 17 11 15" stroke-linecap="round"/>
+          </svg>
           <div class="itin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <circle cx="5.5" cy="17.5" r="2.5"/>
@@ -1998,43 +2545,61 @@
       <h2 class="title fu">Familia &amp; Padrinos</h2>
       <p class="subtitle fu">Rodeados de quienes más amamos</p>
 
-      <div class="fam-group fu">
-        <p class="fam-group-title">Padres del novio</p>
-        <div class="fam-row">
-          <span class="fam-role">Papá</span>
-          <span class="fam-name">Ing. Javier Romero</span>
+      <div class="fam-group-v2 fu">
+        <div class="fam-heading">
+          <span class="fam-script">Padres</span>
         </div>
-        <div class="fam-row">
-          <span class="fam-role">Mamá</span>
-          <span class="fam-name">Sra. Patricia Mora</span>
-        </div>
-      </div>
-
-      <div class="fam-group fu">
-        <p class="fam-group-title">Padres de la novia</p>
-        <div class="fam-row">
-          <span class="fam-role">Papá</span>
-          <span class="fam-name">Dr. Héctor Vargas</span>
-        </div>
-        <div class="fam-row">
-          <span class="fam-role">Mamá</span>
-          <span class="fam-name">Dra. Lucía Mendoza</span>
+        <span class="fam-eyebrow fu">del novio</span>
+        <div class="fam-members-v2">
+          <div class="fam-entry fu">
+            <span class="fam-role-v2">papá</span>
+            <span class="fam-name-v2">Ing. Javier Romero</span>
+          </div>
+          <div class="fam-entry fu">
+            <span class="fam-role-v2">mamá</span>
+            <span class="fam-name-v2">Sra. Patricia Mora</span>
+          </div>
         </div>
       </div>
 
-      <div class="fam-group fu">
-        <p class="fam-group-title">Padrinos de Brindis</p>
-        <div class="fam-row">
-          <span class="fam-role">Padrinos</span>
-          <span class="fam-name">Dr. Andrés Fuentes<br>&amp; Sra. Mónica Peña</span>
+      <div class="fam-group-v2 fu">
+        <div class="fam-heading">
+          <span class="fam-script">Padres</span>
+        </div>
+        <span class="fam-eyebrow fu">de la novia</span>
+        <div class="fam-members-v2">
+          <div class="fam-entry fu">
+            <span class="fam-role-v2">papá</span>
+            <span class="fam-name-v2">Dr. Héctor Vargas</span>
+          </div>
+          <div class="fam-entry fu">
+            <span class="fam-role-v2">mamá</span>
+            <span class="fam-name-v2">Dra. Lucía Mendoza</span>
+          </div>
         </div>
       </div>
 
-      <div class="fam-group fu">
-        <p class="fam-group-title">Padrinos de Flores</p>
-        <div class="fam-row">
-          <span class="fam-role">Padrinos</span>
-          <span class="fam-name">Lic. Carlos Ibarra<br>&amp; Mtra. Laura Soto</span>
+      <div class="fam-group-v2 fu">
+        <div class="fam-heading">
+          <span class="fam-script">Padrinos</span>
+        </div>
+        <span class="fam-eyebrow fu">de brindis</span>
+        <div class="fam-members-v2">
+          <div class="fam-entry fu">
+            <span class="fam-name-v2">Dr. Andrés Fuentes<br>&amp; Sra. Mónica Peña</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fam-group-v2 fu">
+        <div class="fam-heading">
+          <span class="fam-script">Padrinos</span>
+        </div>
+        <span class="fam-eyebrow fu">de flores</span>
+        <div class="fam-members-v2">
+          <div class="fam-entry fu">
+            <span class="fam-name-v2">Lic. Carlos Ibarra<br>&amp; Mtra. Laura Soto</span>
+          </div>
         </div>
       </div>
     </section>
@@ -2071,51 +2636,92 @@
       <h2 class="title fu">Mesa <span style="font-family:var(--script);color:var(--accent);font-size:42px;">de</span> regalos</h2>
       <p class="gifts-sub fu">Si deseas obsequiarnos algo, hemos preparado estas opciones</p>
 
-      <div class="gifts-grid">
-        <article class="gift-card fu">
-          <div class="gift-icon">
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M8 12h4l3 22h24l3-14H18" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="20" cy="42" r="3"/>
-              <circle cx="36" cy="42" r="3"/>
-              <path d="M22 20c2 2 6 2 8 0" stroke-linecap="round"/>
+      <div class="gifts-hearts">
+        <article class="gift-heart-wrapper fu">
+          <div class="gift-heart">
+            <svg class="heart-shape" viewBox="0 0 280 260" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="heart-fill-1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFF8F8"/>
+                  <stop offset="100%" stop-color="#F5E4E0"/>
+                </linearGradient>
+              </defs>
+              <path d="M140 58 C158 18 228 18 228 80 C228 142 140 230 140 230 C140 230 52 142 52 80 C52 18 122 18 140 58 Z"
+                    fill="url(#heart-fill-1)" stroke="#C77A82" stroke-width="1.6"/>
             </svg>
+            <div class="heart-content">
+              <div class="gift-icon-sm" aria-hidden="true">
+                <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M8 12h4l3 22h24l3-14H18" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="20" cy="42" r="3"/>
+                  <circle cx="36" cy="42" r="3"/>
+                  <path d="M22 20c2 2 6 2 8 0" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="gift-name-sm fu">Amazon</div>
+              <div class="gift-desc-sm fu">Lista de regalos en línea</div>
+            </div>
           </div>
-          <div class="gift-name">Amazon</div>
-          <div class="gift-desc">Lista de regalos en línea<br>desde cualquier lugar</div>
-          <a class="gift-btn" href="https://www.amazon.com.mx/wedding/registry/santiago-valentina" target="_blank" rel="noopener noreferrer">Ver lista</a>
+          <a class="gift-btn-heart fu" href="https://www.amazon.com.mx/wedding/registry/santiago-valentina" target="_blank" rel="noopener noreferrer">Ver lista</a>
         </article>
 
-        <article class="gift-card fu">
-          <div class="gift-icon">
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M14 18h24l-2 24H16z" stroke-linejoin="round"/>
-              <path d="M20 18c0-4 3-7 6-7s6 3 6 7" stroke-linecap="round"/>
-              <circle cx="20" cy="26" r="1.2" fill="currentColor"/>
-              <circle cx="32" cy="26" r="1.2" fill="currentColor"/>
+        <article class="gift-heart-wrapper fu">
+          <div class="gift-heart">
+            <svg class="heart-shape" viewBox="0 0 280 260" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="heart-fill-2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFF8F8"/>
+                  <stop offset="100%" stop-color="#F5E4E0"/>
+                </linearGradient>
+              </defs>
+              <path d="M140 58 C158 18 228 18 228 80 C228 142 140 230 140 230 C140 230 52 142 52 80 C52 18 122 18 140 58 Z"
+                    fill="url(#heart-fill-2)" stroke="#C77A82" stroke-width="1.6"/>
             </svg>
+            <div class="heart-content">
+              <div class="gift-icon-sm" aria-hidden="true">
+                <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M14 18h24l-2 24H16z" stroke-linejoin="round"/>
+                  <path d="M20 18c0-4 3-7 6-7s6 3 6 7" stroke-linecap="round"/>
+                  <circle cx="20" cy="26" r="1.2" fill="currentColor"/>
+                  <circle cx="32" cy="26" r="1.2" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="gift-name-sm fu">Liverpool</div>
+              <div class="gift-desc-sm fu">Mesa No. 50847321</div>
+            </div>
           </div>
-          <div class="gift-name">Liverpool</div>
-          <div class="gift-desc">Mesa de regalos<br>No. 50847321</div>
-          <a class="gift-btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/50847321" target="_blank" rel="noopener noreferrer">Ver mesa</a>
+          <a class="gift-btn-heart fu" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/50847321" target="_blank" rel="noopener noreferrer">Ver mesa</a>
         </article>
 
-        <article class="gift-card fu">
-          <div class="gift-icon">
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="8" y="14" width="36" height="24" rx="3"/>
-              <line x1="8" y1="22" x2="44" y2="22"/>
-              <line x1="14" y1="30" x2="22" y2="30" stroke-linecap="round"/>
-              <line x1="14" y1="34" x2="18" y2="34" stroke-linecap="round"/>
+        <article class="gift-heart-wrapper fu">
+          <div class="gift-heart">
+            <svg class="heart-shape" viewBox="0 0 280 260" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="heart-fill-3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFF8F8"/>
+                  <stop offset="100%" stop-color="#F5E4E0"/>
+                </linearGradient>
+              </defs>
+              <path d="M140 58 C158 18 228 18 228 80 C228 142 140 230 140 230 C140 230 52 142 52 80 C52 18 122 18 140 58 Z"
+                    fill="url(#heart-fill-3)" stroke="#C77A82" stroke-width="1.6"/>
             </svg>
+            <div class="heart-content">
+              <div class="gift-icon-sm" aria-hidden="true">
+                <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="8" y="14" width="36" height="24" rx="3"/>
+                  <line x1="8" y1="22" x2="44" y2="22"/>
+                  <line x1="14" y1="30" x2="22" y2="30" stroke-linecap="round"/>
+                  <line x1="14" y1="34" x2="18" y2="34" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="gift-name-sm fu">BBVA México</div>
+              <div class="gift-desc-sm fu">
+                <b>CLABE</b>
+                <span class="gift-clabe-sm">0125 0040 8731 2659 48</span>
+              </div>
+            </div>
           </div>
-          <div class="gift-name">Cuenta bancaria</div>
-          <div class="gift-desc">
-            <span class="bank-line"><b>Banco</b><br>BBVA México</span>
-            <span class="bank-line"><b>Titular</b><br>Santiago Romero Mora</span>
-            <span class="bank-line"><b>CLABE</b><br><span class="clabe">0125 0040 8731 2659 48</span></span>
-          </div>
-          <button type="button" class="gift-btn copy-clabe" data-clabe="012500408731265948">Copiar CLABE</button>
+          <button type="button" class="gift-btn-heart copy-clabe fu" data-clabe="012500408731265948">Copiar CLABE</button>
         </article>
       </div>
     </section>
@@ -2375,18 +2981,77 @@
     }, { passive: false });
   }());
 
+  /* ── splitHeroNames — preparar letras para animación ─ */
+  function splitHeroNames() {
+    var lines = document.querySelectorAll('#hero-names .hero-line');
+    lines.forEach(function (line) {
+      var name = line.getAttribute('data-name') || line.textContent || '';
+      var frag = '';
+      Array.from(name).forEach(function (ch) {
+        if (ch === ' ') {
+          frag += '<span class="hero-letter is-space">&nbsp;</span>';
+        } else {
+          var safe = ch === '&' ? '&amp;' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
+          frag += '<span class="hero-letter">' + safe + '</span>';
+        }
+      });
+      line.innerHTML = frag;
+    });
+  }
+
   /* ── heroAnim ──────────────────────────────────── */
   function heroAnim() {
-    gsap.timeline()
-      .to('#hero-orn-top', { opacity: 1, width: 120, duration: 0.8, ease: 'power2.out' })
-      .to('#hero-names', {
-        clipPath: 'inset(0 0% 0 0)',
-        duration: 1.5,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .to('#hero-orn-bottom', { opacity: 1, width: 80, duration: 0.6, ease: 'power2.out' }, '-=0.5')
-      .to('#hero-date', { opacity: 1, y: 0, duration: .8, ease: 'power2.out' }, '-=0.3')
-      .to('#hero-city', { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=0.5')
+    splitHeroNames();
+    var letters = document.querySelectorAll('#hero-names .hero-letter');
+
+    var tl = gsap.timeline();
+
+    tl.to('#hero-orn-top', { opacity: 1, width: 120, duration: 0.8, ease: 'power2.out' });
+
+    // Letras: desde arriba, rotadas, con blur y opacidad 0 → caen como pétalos suaves
+    tl.fromTo(letters,
+      { opacity: 0, y: -34, rotation: -12, scale: 0.6, filter: 'blur(14px)' },
+      {
+        opacity: 1, y: 0, rotation: 0, scale: 1, filter: 'blur(0px)',
+        duration: 1.1,
+        ease: 'back.out(1.35)',
+        stagger: { each: 0.07, from: 'start' }
+      },
+      '-=0.3'
+    );
+
+    // Corazón pulsante aparece entre los nombres
+    tl.fromTo('#hero-heart',
+      { opacity: 0, scale: 0.2, rotation: -20 },
+      {
+        opacity: 1, scale: 1, rotation: 0,
+        duration: 0.9,
+        ease: 'back.out(2.2)'
+      },
+      '-=0.6'
+    );
+
+    // Pulso infinito del corazón
+    tl.to('#hero-heart', {
+      scale: 1.18,
+      duration: 0.85,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    // Glow romántico pulsante en los nombres (se inicia tras todas las letras)
+    tl.to('#hero-names', {
+      textShadow: '0 2px 24px rgba(46,26,29,.3), 0 0 92px rgba(232,184,189,.55), 0 0 44px rgba(199,122,130,.4)',
+      duration: 2.2,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true
+    }, '-=0.2');
+
+    tl.to('#hero-orn-bottom', { opacity: 1, width: 80, duration: 0.6, ease: 'power2.out' }, '-=2.8')
+      .to('#hero-date',  { opacity: 1, y: 0, duration: .8, ease: 'power2.out' }, '-=0.3')
+      .to('#hero-city',  { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=0.5')
       .to('#hero-scroll',{ opacity: 1, duration: .5, ease: 'power2.out' }, '-=0.3');
 
     /* parallax */
