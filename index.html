@@ -134,7 +134,7 @@
       position: absolute;
       bottom: 48px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) scale(1);
       font-family: var(--sans);
       font-size: 11px;
       font-weight: 600;
@@ -154,6 +154,24 @@
       box-shadow:
         0 4px 14px rgba(0,0,0,.35),
         0 12px 32px -12px rgba(92,30,40,.6);
+      animation: hint-breathe 2.4s ease-in-out 1.6s infinite;
+      will-change: transform, box-shadow;
+    }
+
+    @keyframes hint-breathe {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow:
+          0 4px 14px rgba(0,0,0,.35),
+          0 12px 32px -12px rgba(92,30,40,.6);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.07);
+        box-shadow:
+          0 6px 18px rgba(0,0,0,.4),
+          0 16px 40px -12px rgba(139,58,74,.8),
+          0 0 24px rgba(232,184,189,.35);
+      }
     }
 
     .envelope-hint::after { display: none; }
@@ -2393,6 +2411,7 @@
       .fu { opacity: 1 !important; transform: none !important; }
       .gift-heart { animation: none !important; }
       .heart-shape path { animation: none !important; }
+      .envelope-hint { animation: none !important; }
       .hero-letter { opacity: 1 !important; transform: none !important; filter: none !important; }
       .hero-heart { opacity: 1 !important; transform: scale(1) !important; }
       .hero-amp, .hero-date, .hero-city, .hero-scroll { opacity: 1 !important; transform: none !important; }
