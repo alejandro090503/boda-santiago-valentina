@@ -1648,8 +1648,17 @@
     /* Rosas blancas/claras sobre fondos oscuros */
     .rose-watermark.on-dark { color: var(--gold-light); opacity: .08; }
 
-    /* Asegura que el contenido de sección quede encima */
-    section > *:not(.rose-watermark):not(.corner-decor):not(.petals-layer):not(.wheel-photo) {
+    /* Asegura que el contenido de secciones con rose-watermark quede encima
+       (excluimos #hero porque tiene hero-bg/overlay/vignette con position:absolute) */
+    #cuenta > *:not(.rose-watermark):not(.corner-decor):not(.petals-layer),
+    #ubicacion > *:not(.rose-watermark),
+    #itinerario > *:not(.rose-watermark):not(.corner-decor),
+    #dresscode > *:not(.rose-watermark),
+    #familia > *:not(.rose-watermark),
+    #kids-policy > *:not(.rose-watermark),
+    #gifts > *:not(.rose-watermark),
+    #album > *:not(.rose-watermark),
+    #rsvp > *:not(.rose-watermark) {
       position: relative;
       z-index: 1;
     }
