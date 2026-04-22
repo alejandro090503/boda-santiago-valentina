@@ -2421,7 +2421,7 @@
   <div id="envelope-screen" role="button" aria-label="Toca para abrir tu invitación">
 
     <!-- Imagen estática del sobre (IA generada) -->
-    <img id="env-image" src="sobre.jpg" alt="Sobre invitación Santiago &amp; Valentina" />
+    <img id="env-image" src="sobre.png" alt="Sobre invitación Santiago &amp; Valentina" />
 
     <!-- Video de apertura (IA generada) — oculto hasta el tap -->
     <video id="env-video" src="sobre-apertura.mp4" playsinline webkit-playsinline muted preload="auto"></video>
@@ -3395,7 +3395,7 @@
       '-=0.3'
     );
 
-    // Corazón pulsante aparece entre los nombres
+    // Corazón aparece entre los nombres (entrada solamente, sin pulso continuo — prueba de stutter)
     tl.fromTo('#hero-heart',
       { opacity: 0, scale: 0.2, rotation: -20 },
       {
@@ -3406,25 +3406,7 @@
       '-=0.6'
     );
 
-    // Pulso infinito del corazón
-    tl.to('#hero-heart', {
-      scale: 1.18,
-      duration: 0.85,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    // Glow romántico pulsante en los nombres (se inicia tras todas las letras)
-    tl.to('#hero-names', {
-      textShadow: '0 2px 24px rgba(46,26,29,.3), 0 0 92px rgba(232,184,189,.55), 0 0 44px rgba(199,122,130,.4)',
-      duration: 2.2,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true
-    }, '-=0.2');
-
-    tl.to('#hero-orn-bottom', { opacity: 1, width: 80, duration: 0.6, ease: 'power2.out' }, '-=2.8')
+    tl.to('#hero-orn-bottom', { opacity: 1, width: 80, duration: 0.6, ease: 'power2.out' }, '-=0.4')
       .to('#hero-date',  { opacity: 1, y: 0, duration: .8, ease: 'power2.out' }, '-=0.3')
       .to('#hero-city',  { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=0.5')
       .to('#hero-scroll',{ opacity: 1, duration: .5, ease: 'power2.out' }, '-=0.3');
