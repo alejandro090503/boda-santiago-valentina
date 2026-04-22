@@ -156,21 +156,7 @@
         0 12px 32px -12px rgba(92,30,40,.6);
     }
 
-    .envelope-hint::after {
-      content: '';
-      display: inline-block;
-      width: 22px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(232,184,189,.9), transparent);
-      margin-left: 10px;
-      vertical-align: middle;
-      animation: hintPulse 1.6s ease-in-out infinite;
-    }
-
-    @keyframes hintPulse {
-      0%, 100% { opacity: .5; width: 18px; }
-      50%       { opacity: 1;  width: 30px; }
-    }
+    .envelope-hint::after { display: none; }
 
     /* Gold confetti that bursts out */
     .confetti-container {
