@@ -1663,10 +1663,12 @@
     .rose-watermark svg { width: 100%; height: 100%; display: block; }
 
     /* Variantes de tamaño */
-    .rose-watermark.xs { width: 48px; height: 48px; opacity: .10; }
-    .rose-watermark.sm { width: 72px; height: 72px; opacity: .08; }
-    .rose-watermark.md { width: 110px; height: 110px; opacity: .07; }
-    .rose-watermark.lg { width: 160px; height: 160px; opacity: .055; }
+    .rose-watermark.xxs { width: 26px; height: 26px; opacity: .14; }
+    .rose-watermark.xs  { width: 40px; height: 40px; opacity: .11; }
+    .rose-watermark.sm  { width: 60px; height: 60px; opacity: .09; }
+    .rose-watermark.md  { width: 96px; height: 96px; opacity: .075; }
+    .rose-watermark.lg  { width: 140px; height: 140px; opacity: .06; }
+    .rose-watermark.xl  { width: 200px; height: 200px; opacity: .05; }
 
     /* Rosas blancas/claras sobre fondos oscuros */
     .rose-watermark.on-dark { color: var(--gold-light); opacity: .08; }
@@ -2518,22 +2520,21 @@
 
     <!-- ── 2. COUNTDOWN ────────────────────────────── -->
     <section id="cuenta" aria-label="Cuenta regresiva">
-      <svg class="rose-watermark md" style="top:6%;left:-30px;transform:rotate(-22deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
-        <circle cx="50" cy="50" r="8"/>
-        <circle cx="50" cy="50" r="15" opacity=".7"/>
-        <circle cx="50" cy="50" r="22" opacity=".5"/>
-        <path d="M20 50 Q30 25 50 32" stroke-linecap="round"/>
-        <path d="M80 50 Q70 25 50 32" stroke-linecap="round"/>
-        <path d="M20 50 Q30 75 50 68" stroke-linecap="round"/>
-        <path d="M80 50 Q70 75 50 68" stroke-linecap="round"/>
-        <path d="M50 72 L50 95" stroke-linecap="round"/>
-      </svg>
-      <svg class="rose-watermark sm" style="bottom:10%;right:-18px;transform:rotate(28deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-        <circle cx="50" cy="50" r="10"/>
-        <circle cx="50" cy="50" r="18" opacity=".55"/>
-        <path d="M25 50 Q35 28 50 35" stroke-linecap="round"/>
-        <path d="M75 50 Q65 28 50 35" stroke-linecap="round"/>
-      </svg>
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
+      <svg class="rose-watermark md" style="top:6%;left:-30px;transform:rotate(-22deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="bottom:10%;right:-18px;transform:rotate(28deg)" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
       <p class="label fu">Faltan</p>
       <h2 class="title fu">Nuestro gran día</h2>
       <p class="subtitle fu">El tiempo vuela cuando esperas algo hermoso</p>
@@ -2616,25 +2617,21 @@
 
     <!-- ── 3. UBICACIÓN ────────────────────────────── -->
     <section id="ubicacion" aria-label="Lugares del evento">
-      <svg class="rose-watermark lg" style="top:-20px;right:-50px;transform:rotate(18deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-        <circle cx="50" cy="50" r="6"/>
-        <circle cx="50" cy="50" r="12" opacity=".7"/>
-        <circle cx="50" cy="50" r="19" opacity=".5"/>
-        <circle cx="50" cy="50" r="26" opacity=".3"/>
-        <path d="M20 50 Q32 26 50 34" stroke-linecap="round"/>
-        <path d="M80 50 Q68 26 50 34" stroke-linecap="round"/>
-        <path d="M20 50 Q32 74 50 66" stroke-linecap="round"/>
-        <path d="M80 50 Q68 74 50 66" stroke-linecap="round"/>
-        <path d="M50 72 L50 95" stroke-linecap="round"/>
-        <path d="M45 85 Q40 80 38 83" stroke-linecap="round"/>
-        <path d="M55 88 Q60 83 62 86" stroke-linecap="round"/>
-      </svg>
-      <svg class="rose-watermark md" style="bottom:8%;left:-40px;transform:rotate(-14deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
-        <circle cx="50" cy="50" r="8"/>
-        <circle cx="50" cy="50" r="16" opacity=".6"/>
-        <path d="M22 50 Q34 28 50 34" stroke-linecap="round"/>
-        <path d="M78 50 Q66 28 50 34" stroke-linecap="round"/>
-      </svg>
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
+      <svg class="rose-watermark lg" style="top:-20px;right:-50px;transform:rotate(18deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="bottom:8%;left:-40px;transform:rotate(-14deg)" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
       <p class="label fu">Nos encontramos aquí</p>
       <h2 class="title fu">Dónde celebraremos</h2>
       <div class="rose-divider fu">
@@ -2747,26 +2744,26 @@
 
     <!-- ── 5. ITINERARIO — LUXURY REDESIGN ─────────── -->
     <section id="itinerario" aria-label="Itinerario de la boda">
+      <svg class="rose-watermark on-dark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <div class="corner-decor tl" style="border-color: rgba(199,122,130,0.2)"></div>
       <div class="corner-decor tr" style="border-color: rgba(199,122,130,0.2)"></div>
       <div class="corner-decor bl" style="border-color: rgba(199,122,130,0.2)"></div>
       <div class="corner-decor br" style="border-color: rgba(199,122,130,0.2)"></div>
 
-      <svg class="rose-watermark on-dark md" style="top:12%;left:-30px;transform:rotate(-18deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-        <circle cx="50" cy="50" r="7"/>
-        <circle cx="50" cy="50" r="14" opacity=".6"/>
-        <circle cx="50" cy="50" r="22" opacity=".4"/>
-        <path d="M22 50 Q34 26 50 34" stroke-linecap="round"/>
-        <path d="M78 50 Q66 26 50 34" stroke-linecap="round"/>
-        <path d="M22 50 Q34 74 50 66" stroke-linecap="round"/>
-        <path d="M78 50 Q66 74 50 66" stroke-linecap="round"/>
-      </svg>
-      <svg class="rose-watermark on-dark sm" style="bottom:14%;right:-20px;transform:rotate(22deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
-        <circle cx="50" cy="50" r="10"/>
-        <circle cx="50" cy="50" r="18" opacity=".55"/>
-        <path d="M25 50 Q35 28 50 35" stroke-linecap="round"/>
-        <path d="M75 50 Q65 28 50 35" stroke-linecap="round"/>
-      </svg>
+      <svg class="rose-watermark on-dark md" style="top:12%;left:-30px;transform:rotate(-18deg)" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark on-dark sm" style="bottom:14%;right:-20px;transform:rotate(22deg)" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
       <p class="label fu" style="text-align:center;">El programa</p>
       <h2 class="title fu" style="text-align:center;">Itinerario</h2>
       <div class="ornament-divider fu">
@@ -2889,6 +2886,19 @@
 
     <!-- ── 6. DRESS CODE ───────────────────────────── -->
     <section id="dresscode" aria-label="Código de vestimenta">
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <p class="label fu">Código de vestimenta</p>
       <h2 class="title fu">Formal elegante</h2>
       <div class="rose-divider fu">
@@ -2929,6 +2939,19 @@
 
     <!-- ── 7. FAMILIA ──────────────────────────────── -->
     <section id="familia" aria-label="Familia y padrinos">
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <p class="label fu">Quienes nos rodean</p>
       <h2 class="title fu">Familia &amp; Padrinos</h2>
       <p class="subtitle fu">Rodeados de quienes más amamos</p>
@@ -2994,6 +3017,19 @@
 
     <!-- ── 8. SIN NIÑOS ─────────────────────────────── -->
     <section id="kids-policy" aria-label="Aviso: solo adultos">
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <p class="label fu">Aviso especial</p>
       <h2 class="title fu">Una celebración <span style="font-family:var(--script);color:var(--accent);font-size:42px;">de</span> adultos</h2>
       <div class="rose-divider fu">
@@ -3020,6 +3056,19 @@
 
     <!-- ── 9. MESA DE REGALOS ───────────────────────── -->
     <section id="gifts" aria-label="Mesa de regalos">
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <p class="label fu">Tu presencia es nuestro regalo</p>
       <h2 class="title fu">Mesa <span style="font-family:var(--script);color:var(--accent);font-size:42px;">de</span> regalos</h2>
       <p class="gifts-sub fu">Si deseas obsequiarnos algo, hemos preparado estas opciones</p>
@@ -3116,6 +3165,19 @@
 
     <!-- ── 10. ÁLBUM QR ─────────────────────────────── -->
     <section id="album" aria-label="Álbum compartido">
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <p class="label fu">Álbum compartido</p>
       <h2 class="title fu">Comparte <span style="font-family:var(--script);color:var(--accent);font-size:42px;">tus</span> fotos</h2>
       <div class="rose-divider fu">
@@ -3137,6 +3199,19 @@
 
     <!-- ── 9. COMPARTIR INVITACIÓN ───────────────── -->
     <section id="rsvp" aria-label="Confirmación de asistencia">
+      <svg class="rose-watermark xl" style="top:28%;right:-70px;transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark lg" style="top:58%;left:-55px;transform:rotate(-20deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark md" style="top:45%;right:8%;transform:rotate(-8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:18%;right:22%;transform:rotate(18deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark sm" style="top:72%;left:18%;transform:rotate(-30deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:38%;left:8%;transform:rotate(24deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xs" style="top:82%;right:20%;transform:rotate(-15deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:24%;left:38%;transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:62%;right:32%;transform:rotate(-22deg)" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+      <svg class="rose-watermark xxs" style="top:90%;left:48%;transform:rotate(8deg)" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor"><path d="M50 84 C30 70 10 55 10 34 C10 22 20 13 31 13 C40 13 46 17 50 23 C54 17 60 13 69 13 C80 13 90 22 90 34 C90 55 70 70 50 84 Z"/></svg>
+
+
+
       <p class="label fu">Confírmanos tu asistencia</p>
       <h2 class="title rsvp-title fu">R<span class="rsvp-title-script">·</span>S<span class="rsvp-title-script">·</span>V<span class="rsvp-title-script">·</span>P</h2>
       <p class="subtitle fu">Cuéntanos cuántos son y sus nombres</p>
