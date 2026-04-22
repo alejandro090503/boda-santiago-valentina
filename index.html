@@ -100,10 +100,10 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
+      background: #1A0D10;
       z-index: 2;
-      transform: scale(1.18);
     }
 
     /* Video de apertura — oculto hasta que el usuario toca */
@@ -112,11 +112,11 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
+      background: #1A0D10;
       z-index: 3;
       opacity: 0;
-      transform: scale(1.18);
     }
 
     /* Overlay blanco global — vive FUERA del sobre para persistir tras su eliminación */
@@ -130,37 +130,47 @@
     }
 
 
-    /* Hint text — "Toca para abrir" */
+    /* Hint text — "Toca para abrir" — pill visible sobre la imagen del sobre */
     .envelope-hint {
       position: absolute;
-      bottom: 52px;
+      bottom: 48px;
       left: 50%;
       transform: translateX(-50%);
-      font-family: var(--serif);
+      font-family: var(--sans);
       font-size: 11px;
-      letter-spacing: 5px;
+      font-weight: 600;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: rgba(100,30,40,0.7);
+      color: #FAF0EE;
       opacity: 0;
       cursor: pointer;
       white-space: nowrap;
       z-index: 10;
-      text-shadow: 0 1px 4px rgba(255,255,255,0.6);
+      padding: 12px 22px 12px 26px;
+      background: rgba(92,30,40,.82);
+      border: 1px solid rgba(232,184,189,.5);
+      border-radius: 100px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow:
+        0 4px 14px rgba(0,0,0,.35),
+        0 12px 32px -12px rgba(92,30,40,.6);
     }
 
     .envelope-hint::after {
       content: '';
-      display: block;
-      width: 32px;
+      display: inline-block;
+      width: 22px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(140,60,70,0.5), transparent);
-      margin: 10px auto 0;
-      animation: hintPulse 2.2s ease-in-out infinite;
+      background: linear-gradient(90deg, rgba(232,184,189,.9), transparent);
+      margin-left: 10px;
+      vertical-align: middle;
+      animation: hintPulse 1.6s ease-in-out infinite;
     }
 
     @keyframes hintPulse {
-      0%, 100% { opacity: 0.4; width: 32px; }
-      50%       { opacity: 1;   width: 54px; }
+      0%, 100% { opacity: .5; width: 18px; }
+      50%       { opacity: 1;  width: 30px; }
     }
 
     /* Gold confetti that bursts out */
@@ -3261,15 +3271,7 @@
         ease: 'power2.out'
       }, '-=0.5');
 
-    // Pulso sutil de la imagen para invitar a tocar (sobre el scale base de 1.18)
-    gsap.to(envImage, {
-      scale: 1.20,
-      duration: 2.2,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-      delay: 1.5
-    });
+    // (sin pulso infinito en la imagen del sobre — queda estática)
 
     // ── Paso 3: flash blanco → preparar invitación detrás → disolver flash ──
     var flashStarted  = false;
