@@ -291,7 +291,9 @@
       inset: -20% 0;
       background: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=860&q=80') center/cover no-repeat;
       transform-origin: center center;
+      transform: translate3d(0,0,0);
       will-change: transform;
+      backface-visibility: hidden;
     }
 
     .hero-overlay {
@@ -1166,10 +1168,11 @@
       inset: 0;
       background-size: cover;
       background-position: center;
-      filter: blur(24px) saturate(.85) brightness(1.02);
+      filter: blur(16px) saturate(.9);
       opacity: 0;
-      transform: scale(1.15);
-      will-change: opacity, transform;
+      transform: scale(1.12) translateZ(0);
+      will-change: opacity;
+      backface-visibility: hidden;
     }
     .bg-tint {
       position: absolute;
@@ -1183,10 +1186,10 @@
     /* Body queda translúcido para permitir que bg-layer se vea */
     body { background: transparent; }
 
-    /* Secciones sin fondo explícito necesitan ser translúcidas */
-    #ubicacion, #calendar, #dresscode, #gifts { background: rgba(250,240,238,.38); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
-    #cuenta, #familia { background: rgba(245,228,224,.55); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
-    #kids-policy, #album, #rsvp { background: linear-gradient(180deg, rgba(245,228,224,.55) 0%, rgba(250,240,238,.55) 100%); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+    /* Secciones sin fondo explícito — translúcidas SIN backdrop-filter (era causa de stutter en scroll) */
+    #ubicacion, #calendar, #dresscode, #gifts { background: rgba(250,240,238,.78); }
+    #cuenta, #familia { background: rgba(245,228,224,.82); }
+    #kids-policy, #album, #rsvp { background: linear-gradient(180deg, rgba(245,228,224,.82) 0%, rgba(250,240,238,.82) 100%); }
 
     /* ══════════════════════════════════════════════════════
        COUNTDOWN — rediseño elegante con tema de rosas
